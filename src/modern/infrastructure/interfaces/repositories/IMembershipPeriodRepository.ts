@@ -1,7 +1,7 @@
 import {
   MembershipPeriod,
   MembershipPeriodId
-} from '../../../domain/membershipPeriod/membershipPeriod.model';
+} from '../../../domain/membership/membershipPeriod/membershipPeriod.model';
 import { MembershipId } from '../../../domain/membership/membership.model';
 
 export default interface IMembershipPeriodRepository {

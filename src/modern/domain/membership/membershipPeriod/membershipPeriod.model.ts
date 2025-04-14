@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import { components } from '../../core/types/apiGenerated.interface';
-import { MembershipPeriodState } from '../../core/types/apiGenerated.interface';
+import { components } from '../../../core/types/apiGenerated.interface';
+import { MembershipPeriodState } from '../../../core/types/apiGenerated.interface';
 
 export type MembershipPeriodId = number;
 export type MembershipPeriodUuid = string;

@@ -1,6 +1,6 @@
 import test from 'ava';
 import { Membership } from '../../domain/membership/membership.model';
-import { MembershipPeriod } from '../../domain/membershipPeriod/membershipPeriod.model';
+import { MembershipPeriod } from '../../domain/membership/membershipPeriod/membershipPeriod.model';
 import { MembershipDto } from '../../application/dto/membership.dto';
 import { MembershipPeriodDto } from '../../application/dto/membershipPeriod.dto';
 import { MembershipWithPeriodDto } from '../../application/dto/membershipWithPeriod.dto';

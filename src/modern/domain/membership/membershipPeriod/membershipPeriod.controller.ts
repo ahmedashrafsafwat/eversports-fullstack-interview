@@ -1,11 +1,11 @@
 // src/presentation/controllers/membershipPeriod.controller.ts
 import { Request, Response } from 'express';
-import { MembershipPeriodService } from '../../domain/membershipPeriod/membershipPeriod.service';
+import { MembershipPeriodService } from './membershipPeriod.service';
 import {
   CreateMembershipPeriodDto,
   MembershipPeriodResponseDto
-} from '../../application/dto/membershipPeriod.dto';
-import { logMethod } from '../../core/decorators/logMethod';
+} from '../../../application/dto/membershipPeriod.dto';
+import { logMethod } from '../../../core/decorators/logMethod';
 
 export class MembershipPeriodController {
   constructor(

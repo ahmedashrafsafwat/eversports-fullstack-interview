@@ -1,4 +1,4 @@
-import { MembershipPeriod } from '../../domain/membershipPeriod/membershipPeriod.model';
+import { MembershipPeriod } from '../../domain/membership/membershipPeriod/membershipPeriod.model';
 import { MembershipPeriodState } from '../../core/types/apiGenerated.interface';
 import { InternalServerError } from '../../core/errors/appError';
 

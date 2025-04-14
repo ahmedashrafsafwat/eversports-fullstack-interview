@@ -12,7 +12,6 @@ import {
 } from '../../core/types/apiGenerated.interface';
 import { mockMembership1 } from '../fixtures/membership.fixtures';
 
-// Setup for each test
 test.beforeEach((t) => {
   // Setup context object to store test data
   t.context = {
@@ -28,14 +27,11 @@ test.afterEach((t) => {
   createStub.restore();
 });
 
-// Tests for fromDomain
 test('fromDomain should convert a Membership domain model to MembershipResponseDto', (t) => {
   const { mockMembership } = t.context as { mockMembership: Membership };
 
-  // Act
   const result = MembershipDto.fromDomain(mockMembership);
 
-  // Assert
   t.deepEqual(result, {
     id: mockMembership.id,
     uuid: mockMembership.uuid,
@@ -52,7 +48,6 @@ test('fromDomain should convert a Membership domain model to MembershipResponseD
 });
 
 test('fromDomain should handle null and undefined values correctly', (t) => {
-  // Arrange
   const partialMembership = {
     name: 'Basic Membership',
     user: 789,
@@ -62,10 +57,8 @@ test('fromDomain should handle null and undefined values correctly', (t) => {
     billingInterval: BillingInterval.yearly
   } as Membership;
 
-  // Act
   const result = MembershipDto.fromDomain(partialMembership);
 
-  // Assert
   t.deepEqual(result, {
     id: undefined,
     uuid: undefined,
@@ -81,9 +74,7 @@ test('fromDomain should handle null and undefined values correctly', (t) => {
   });
 });
 
-// Tests for fromDomainList
 test('fromDomainList should convert an array of Membership domain models to MembershipResponseDto array', (t) => {
-  // Arrange
   const { mockMembership } = t.context as { mockMembership: Membership };
 
   const mockMemberships = [
@@ -99,10 +90,8 @@ test('fromDomainList should convert an array of Membership domain models to Memb
   // Spy on fromDomain
   const fromDomainSpy = sinon.spy(MembershipDto, 'fromDomain');
 
-  // Act
   const result = MembershipDto.fromDomainList(mockMemberships);
 
-  // Assert
   t.is(result.length, 2);
   t.is(fromDomainSpy.callCount, 2);
   t.is(result[0].id, 1);
@@ -115,16 +104,12 @@ test('fromDomainList should convert an array of Membership domain models to Memb
 });
 
 test('fromDomainList should return an empty array when given an empty array', (t) => {
-  // Act
   const result = MembershipDto.fromDomainList([]);
 
-  // Assert
   t.deepEqual(result, []);
 });
 
-// Tests for toDomain
 test('toDomain should convert a CreateMembershipDto to a Membership domain model', (t) => {
-  // Arrange
   const { mockMembership, createStub } = t.context as {
     mockMembership: Membership;
     createStub: sinon.SinonStub;
@@ -139,10 +124,8 @@ test('toDomain should convert a CreateMembershipDto to a Membership domain model
     user: 789
   };
 
-  // Act
   const result = MembershipDto.toDomain(createDto);
 
-  // Assert
   t.true(
     createStub.calledWith({
       name: 'Gold Membership',
@@ -157,7 +140,6 @@ test('toDomain should convert a CreateMembershipDto to a Membership domain model
 });
 
 test('toDomain should pass all properties from CreateMembershipDto to Membership.create', (t) => {
-  // Arrange
   const { createStub } = t.context as { createStub: sinon.SinonStub };
 
   const createDto: CreateMembershipDto = {
@@ -169,10 +151,8 @@ test('toDomain should pass all properties from CreateMembershipDto to Membership
     user: 321
   };
 
-  // Act
   MembershipDto.toDomain(createDto);
 
-  // Assert
   t.true(
     createStub.calledWith(
       sinon.match({

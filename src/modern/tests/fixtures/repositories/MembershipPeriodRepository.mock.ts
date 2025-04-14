@@ -1,4 +1,4 @@
-import { MembershipPeriod } from '../../../domain/membershipPeriod/membershipPeriod.model';
+import { MembershipPeriod } from '../../../domain/membership/membershipPeriod/membershipPeriod.model';
 import IMembershipPeriodRepository from '../../../infrastructure/interfaces/repositories/IMembershipPeriodRepository';
 
 class MockMembershipPeriodRepository implements IMembershipPeriodRepository {

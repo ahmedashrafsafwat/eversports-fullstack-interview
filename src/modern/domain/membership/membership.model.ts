@@ -6,7 +6,7 @@ import {
   MembershipPeriodState
 } from '../../core/types/apiGenerated.interface';
 import { v4 as uuidv4 } from 'uuid';
-import { MembershipPeriod } from '../membershipPeriod/membershipPeriod.model';
+import { MembershipPeriod } from './membershipPeriod/membershipPeriod.model';
 import { DateTime } from 'luxon';
 import { logMethod } from '../../core/decorators/logMethod';
 

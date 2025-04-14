@@ -1,11 +1,11 @@
-import IMembershipPeriodRepository from '../../infrastructure/interfaces/repositories/IMembershipPeriodRepository';
-import IMembershipRepository from '../../infrastructure/interfaces/repositories/IMembershipRepository';
+import IMembershipPeriodRepository from '../../../infrastructure/interfaces/repositories/IMembershipPeriodRepository';
+import IMembershipRepository from '../../../infrastructure/interfaces/repositories/IMembershipRepository';
 import {
   CreateMembershipPeriodDto,
   MembershipPeriodDto,
   MembershipPeriodResponseDto
-} from '../../application/dto/membershipPeriod.dto';
-import { logMethod } from '../../core/decorators/logMethod';
+} from '../../../application/dto/membershipPeriod.dto';
+import { logMethod } from '../../../core/decorators/logMethod';
 
 export class MembershipPeriodService {
   constructor(

@@ -6,7 +6,6 @@ import { GetAllMembershipsCommand } from '../../application/use-cases/membership
 import { CreateMembershipHandler } from '../../application/use-cases/membership/commands/create-membership/create-membership.handler';
 import { GetAllMembershipsHandler } from '../../application/use-cases/membership/commands/get-all-memberships/get-all-memberships.handler';
 
-// Setup test before each
 test.beforeEach((t) => {
   // Create mock handlers
   const createMembershipHandler = {
@@ -51,7 +50,6 @@ test.afterEach.always(() => {
 test('createMembership should create a membership and return 201 status', async (t) => {
   const { controller, createMembershipHandler, req, res } = t.context as any;
 
-  // Setup test data
   req.body = {
     name: 'Premium Membership',
     recurringPrice: 19.99,
@@ -65,16 +63,12 @@ test('createMembership should create a membership and return 201 status', async 
     id: 1,
     name: 'Premium Membership',
     user: 2000
-    // ... other expected properties
   };
 
-  // Setup handler mock to return expected result
   createMembershipHandler.handle.resolves(expectedResult);
 
-  // Call the controller method
   await controller.createMembership(req, res);
 
-  // Verify handler was called with correct command
   t.true(createMembershipHandler.handle.calledOnce);
   const actualCommand = createMembershipHandler.handle.firstCall.args[0];
 
@@ -84,9 +78,8 @@ test('createMembership should create a membership and return 201 status', async 
   t.is(actualCommand.billingPeriods, 12);
   t.is(actualCommand.billingInterval, 'MONTHLY');
   t.true(actualCommand.validFrom instanceof Date);
-  t.is(actualCommand.user, 2000); // Fixed user ID
+  t.is(actualCommand.user, 2000);
 
-  // Verify response was correct
   t.true(res.status.calledWith(201));
   t.true(res.json.calledWith(expectedResult));
 });
@@ -94,7 +87,6 @@ test('createMembership should create a membership and return 201 status', async 
 test('createMembership should return 500 status when handler throws error', async (t) => {
   const { controller, createMembershipHandler, req, res } = t.context as any;
 
-  // Setup test data
   req.body = {
     name: 'Premium Membership',
     recurringPrice: 19.99,
@@ -111,14 +103,11 @@ test('createMembership should return 500 status when handler throws error', asyn
   // Mock console.error to prevent test output pollution
   const consoleErrorStub = sinon.stub(console, 'error');
 
-  // Call the controller method
   await controller.createMembership(req, res);
 
-  // Verify error was logged
   t.true(consoleErrorStub.calledOnce);
   t.true(consoleErrorStub.calledWith('Error creating membership:', error));
 
-  // Verify response was correct
   t.true(res.status.calledWith(500));
   t.true(res.json.calledWith({ error: 'Failed to create membership' }));
 });
@@ -126,24 +115,19 @@ test('createMembership should return 500 status when handler throws error', asyn
 test('getAllMemberships should return all memberships with 200 status', async (t) => {
   const { controller, getAllMembershipsHandler, req, res } = t.context as any;
 
-  // Setup expected result
   const expectedMemberships = [
     { id: 1, name: 'Basic Membership' },
     { id: 2, name: 'Premium Membership' }
   ];
 
-  // Setup handler mock to return expected result
   getAllMembershipsHandler.handle.resolves(expectedMemberships);
 
-  // Call the controller method
   await controller.getAllMemberships(req, res);
 
-  // Verify handler was called with correct command
   t.true(getAllMembershipsHandler.handle.calledOnce);
   const actualCommand = getAllMembershipsHandler.handle.firstCall.args[0];
   t.true(actualCommand instanceof GetAllMembershipsCommand);
 
-  // Verify response was correct
   t.true(res.status.calledWith(200));
   t.true(res.json.calledWith(expectedMemberships));
 });
@@ -151,21 +135,16 @@ test('getAllMemberships should return all memberships with 200 status', async (t
 test('getAllMemberships should return 500 status when handler throws error', async (t) => {
   const { controller, getAllMembershipsHandler, req, res } = t.context as any;
 
-  // Setup handler mock to throw error
   const error = new Error('Database error');
   getAllMembershipsHandler.handle.rejects(error);
 
-  // Mock console.error to prevent test output pollution
   const consoleErrorStub = sinon.stub(console, 'error');
 
-  // Call the controller method
   await controller.getAllMemberships(req, res);
 
-  // Verify error was logged
   t.true(consoleErrorStub.calledOnce);
   t.true(consoleErrorStub.calledWith('Error fetching memberships:', error));
 
-  // Verify response was correct
   t.true(res.status.calledWith(500));
   t.true(res.json.calledWith({ error: 'Failed to fetch memberships' }));
 });
@@ -173,7 +152,6 @@ test('getAllMemberships should return 500 status when handler throws error', asy
 test('createMembership should correctly convert validFrom to Date object', async (t) => {
   const { controller, createMembershipHandler, req, res } = t.context as any;
 
-  // Setup test data with ISO date string
   req.body = {
     name: 'Test Membership',
     recurringPrice: 9.99,
@@ -185,14 +163,11 @@ test('createMembership should correctly convert validFrom to Date object', async
 
   createMembershipHandler.handle.resolves({ id: 1 });
 
-  // Call the controller method
   await controller.createMembership(req, res);
 
-  // Verify handler was called with correct command
   t.true(createMembershipHandler.handle.calledOnce);
   const actualCommand = createMembershipHandler.handle.firstCall.args[0];
 
-  // Verify date was converted correctly
   t.true(actualCommand.validFrom instanceof Date);
   t.is(
     actualCommand.validFrom.toISOString(),

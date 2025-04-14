@@ -25,14 +25,13 @@ test('should create a membership with default values when minimal props provided
   t.is(membership.billingPeriods, 12);
   t.is(membership.billingInterval, BillingInterval.monthly);
 
-  // Default values should be set
   t.is(membership.id, 0);
-  t.truthy(membership.uuid); // Should generate a UUID
+  t.truthy(membership.uuid); 
 
   MockDate.set(new Date());
-  t.deepEqual(membership.validFrom.getDate(), new Date().getDate()); // Current date
+  t.deepEqual(membership.validFrom.getDate(), new Date().getDate());
   MockDate.reset();
-  t.is(membership.state, MembershipState.active); // Active because validFrom is current date
+  t.is(membership.state, MembershipState.active); 
 });
 
 test('should calculate validUntil based on billing parameters - monthly', (t) => {
@@ -145,7 +144,7 @@ test('should honor explicitly provided state even if it conflicts with dates', (
     recurringPrice: 9.99,
     billingPeriods: 6,
     billingInterval: BillingInterval.monthly,
-    state: MembershipState.expired // Force expired state
+    state: MembershipState.expired 
   });
 
   // State should be what we provided, not what would be calculated from dates
@@ -156,7 +155,7 @@ test('should generate correct number of periods', (t) => {
   const validFrom = new Date('2023-01-01');
 
   const membership = Membership.create({
-    id: 42, // Set ID for testing
+    id: 42, 
     name: 'Test Membership',
     paymentMethod: PaymentMethod.credit,
     recurringPrice: 9.99,
@@ -195,8 +194,6 @@ test('should generate periods with correct dates - monthly', async (t) => {
   const mockDates = mockedDates;
 
   // TODO: EVER-1234 Fix Date issue
-  // not it is fixed
-  // This avoids timezone issues entirely
   for (let i = 0; i < periods.length; i++) {
     const startDate = periods[i].start;
     const endDate = periods[i].end;

@@ -6,7 +6,7 @@ import {
   PaymentMethod
 } from '../../core/types/apiGenerated.interface';
 import { Membership } from '../../domain/membership/membership.model';
-import { MembershipPeriod } from '../../domain/membershipPeriod/membershipPeriod.model';
+import { MembershipPeriod } from '../../domain/membership/membershipPeriod/membershipPeriod.model';
 import {
   CreateMembershipDto,
   MembershipResponseDto

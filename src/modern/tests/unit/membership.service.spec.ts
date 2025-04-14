@@ -2,7 +2,7 @@ import test from 'ava';
 import sinon from 'sinon';
 import { MembershipService } from '../../domain/membership/membership.service';
 import { Membership } from '../../domain/membership/membership.model';
-import { MembershipPeriod } from '../../domain/membershipPeriod/membershipPeriod.model';
+import { MembershipPeriod } from '../../domain/membership/membershipPeriod/membershipPeriod.model';
 import { CreateMembershipDto } from '../../application/dto/membership.dto';
 import {
   BillingInterval,

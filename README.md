@@ -203,6 +203,63 @@ The default port is `3000`, you can use the [postman collection](docs/postman/Ev
 
 --- 
 
+## Project structure
+
+```
+├───.github
+│   └───workflows
+├───config
+├───docs
+│   ├───documentation
+│   └───postman
+└───src
+    ├───config
+    ├───data
+    ├───legacy
+    │   └───routes
+    └───modern
+        ├───api
+        │   ├───routes
+        │   └───specs
+        ├───application
+        │   ├───dto
+        │   └───use-cases
+        │       └───membership
+        │           ├───commands
+        │           │   ├───base
+        │           │   ├───create-membership
+        │           │   └───get-all-memberships
+        │           └───queries
+        ├───core
+        │   ├───decorators
+        │   ├───errors
+        │   ├───logger
+        │   ├───middlewares
+        │   ├───scripts
+        │   └───types
+        ├───domain
+        │   └───membership
+        │       └───membershipPeriod
+        ├───infrastructure
+        │   ├───di
+        │   ├───interfaces
+        │   │   └───repositories
+        │   └───persistence
+        │       ├───json
+        │       └───postgres
+        │           ├───entities
+        │           └───migrations
+        └───tests
+            ├───e2e
+            ├───fixtures
+            │   └───repositories
+            ├───helpers
+            ├───integration
+            └───unit
+```
+
+---
+
 ## Thought Process
 
 1. **Read the README** thoroughly to understand the legacy system and requirements.

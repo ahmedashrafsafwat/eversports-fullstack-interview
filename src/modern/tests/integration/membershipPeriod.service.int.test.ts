@@ -1,5 +1,5 @@
 import test from 'ava';
-import { MembershipPeriodService } from '../../domain/membershipPeriod/membershipPeriod.service';
+import { MembershipPeriodService } from '../../domain/membership/membershipPeriod/membershipPeriod.service';
 import { InMemoryMembershipPeriodRepository } from '../../infrastructure/persistence/json/membership-period';
 import { InMemoryMembershipRepository } from '../../infrastructure/persistence/json/membership';
 import {
@@ -11,7 +11,7 @@ import {
   createMembershipPerioddto
 } from '../fixtures/membership.fixtures';
 import { Membership } from '../../domain/membership/membership.model';
-import { MembershipPeriod } from '../../domain/membershipPeriod/membershipPeriod.model';
+import { MembershipPeriod } from '../../domain/membership/membershipPeriod/membershipPeriod.model';
 
 let periodRepo: InMemoryMembershipPeriodRepository;
 let membershipRepo: InMemoryMembershipRepository;
@@ -24,15 +24,11 @@ test.beforeEach(async () => {
   periodService = new MembershipPeriodService(periodRepo);
 });
 
-// --- Unit/Integration Tests ---
-
 test('createMembershipPeriod() creates a new period', async (t) => {
   const dto: CreateMembershipPeriodDto = createMembershipPerioddto;
 
-  // Act
   const result = await periodService.createMembershipPeriod(dto);
 
-  // Assert
   t.is(result.membershipId, dto.membershipId);
   t.truthy(result.id);
   t.deepEqual(result.start, dto.start);
@@ -40,33 +36,27 @@ test('createMembershipPeriod() creates a new period', async (t) => {
 });
 
 test('getMembershipPeriodsByMembershipId() returns periods for membership', async (t) => {
-  // Arrange
   const membership = Membership.create(createMembershipdto);
   await membershipRepo.create(membership);
 
   const period = MembershipPeriod.create(createMembershipPerioddto);
   await periodRepo.create(period);
 
-  // Act
   const result = await periodService.getMembershipPeriodsByMembershipId(
     period.membershipId!
   );
 
-  // Assert
   t.is(result.length, 1);
   t.is(result[0].membershipId, period.membershipId!);
 });
 
 test('getMembershipPeriodsByMembershipId() returns empty array if no periods exist', async (t) => {
-  // Act
   const result = await periodService.getMembershipPeriodsByMembershipId(999); // Non-existent ID
 
-  // Assert
   t.is(result.length, 0);
 });
 
 test('createManyMembershipPeriods() creates multiple periods', async (t) => {
-  // Arrange
   const dtos: CreateMembershipPeriodDto[] = [
     {
       ...createMembershipPerioddto,
@@ -80,33 +70,25 @@ test('createManyMembershipPeriods() creates multiple periods', async (t) => {
     }
   ];
 
-  // Act
   const result = await periodService.createManyMembershipPeriods(dtos);
 
-  // Assert
   t.is(result.length, 2);
   t.is(result[0].membershipId, dtos[0].membershipId);
   t.is(result[1].membershipId, dtos[1].membershipId);
 });
 
 test('createManyMembershipPeriods() returns empty array if input is empty', async (t) => {
-  // Act
   const result = await periodService.createManyMembershipPeriods([]);
 
-  // Assert
   t.is(result.length, 0);
 });
 
-// --- Error Cases ---
-
 test('createMembershipPeriod() throws when repository fails', async (t) => {
-  // Arrange
   periodRepo.create = async () => {
     throw new Error('DB Error');
   };
   const dto: CreateMembershipPeriodDto = createMembershipPerioddto;
 
-  // Act & Assert
   await t.throwsAsync(() => periodService.createMembershipPeriod(dto), {
     instanceOf: Error,
     message: 'DB Error'
@@ -114,7 +96,6 @@ test('createMembershipPeriod() throws when repository fails', async (t) => {
 });
 
 test('createManyMembershipPeriods() throws when repository fails', async (t) => {
-  // Arrange
   periodRepo.createMany = async () => {
     throw new Error('Bulk Insert Failed');
   };
@@ -123,7 +104,6 @@ test('createManyMembershipPeriods() throws when repository fails', async (t) => 
     { ...createMembershipPerioddto, start: new Date('2024-02-01') }
   ];
 
-  // Act & Assert
   await t.throwsAsync(() => periodService.createManyMembershipPeriods(dtos), {
     instanceOf: Error,
     message: 'Bulk Insert Failed'

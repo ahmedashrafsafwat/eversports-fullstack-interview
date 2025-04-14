@@ -12,15 +12,11 @@ import {
 } from '../../core/types/apiGenerated.interface';
 import { mockMembership1 } from '../fixtures/membership.fixtures';
 
-// Store original Membership.create method
 let originalMembershipCreate: typeof Membership.create;
 
-// Setup hook that runs before all tests
 test.before(() => {
-  // Save original implementation
   originalMembershipCreate = Membership.create;
 
-  // Replace with our test implementation
   Membership.create = sinon.stub().callsFake((props) => {
     const now = new Date();
     const nextYear = new Date();
@@ -30,15 +26,11 @@ test.before(() => {
   });
 });
 
-// Cleanup hook that runs after all tests
 test.after(() => {
-  // Restore original implementation
   Membership.create = originalMembershipCreate;
 });
 
-// Full conversion cycle tests
 test('should correctly convert from DTO to domain and back to DTO', (t) => {
-  // Arrange
   const createDto: CreateMembershipDto = {
     name: 'Integration Test Membership',
     recurringPrice: 129.99,
@@ -48,13 +40,10 @@ test('should correctly convert from DTO to domain and back to DTO', (t) => {
     user: 123
   };
 
-  // Act - Convert to domain model
   const domainModel = MembershipDto.toDomain(createDto);
 
-  // Then convert back to DTO
   const responseDto = MembershipDto.fromDomain(domainModel);
 
-  // Assert - Verify the round trip preserves all data
   t.is(responseDto.id, 1);
   t.is(responseDto.uuid, 'test-uuid');
   t.is(responseDto.name, 'Basic Membership');
@@ -68,9 +57,7 @@ test('should correctly convert from DTO to domain and back to DTO', (t) => {
   t.is(responseDto.billingInterval, BillingInterval.monthly);
 });
 
-// Batch operations test
 test('should convert multiple domain models to DTOs correctly', (t) => {
-  // Arrange
   const date1 = new Date('2023-01-01');
   const date2 = new Date('2024-01-01');
   const date3 = new Date('2022-01-01');
@@ -105,13 +92,10 @@ test('should convert multiple domain models to DTOs correctly', (t) => {
     } as Membership
   ];
 
-  // Act
   const dtos = MembershipDto.fromDomainList(mockMemberships);
 
-  // Assert
   t.is(dtos.length, 2);
 
-  // Verify first membership
   t.is(dtos[0].id, 1);
   t.is(dtos[0].uuid, 'uuid-1');
   t.is(dtos[0].name, 'First Membership');
@@ -124,7 +108,6 @@ test('should convert multiple domain models to DTOs correctly', (t) => {
   t.is(dtos[0].billingPeriods, 12);
   t.is(dtos[0].billingInterval, BillingInterval.monthly);
 
-  // Verify second membership
   t.is(dtos[1].id, 2);
   t.is(dtos[1].uuid, 'uuid-2');
   t.is(dtos[1].name, 'Second Membership');
@@ -138,9 +121,7 @@ test('should convert multiple domain models to DTOs correctly', (t) => {
   t.is(dtos[1].billingInterval, BillingInterval.yearly);
 });
 
-// Test for handling all membership states
 test('should handle all membership states correctly', (t) => {
-  // Test with different membership states
   const membershipStates = [
     MembershipState.active,
     MembershipState.expired,
@@ -148,7 +129,6 @@ test('should handle all membership states correctly', (t) => {
   ];
 
   membershipStates.forEach((state) => {
-    // Arrange
     const membership = {
       id: 100,
       uuid: `uuid-${state}`,
@@ -163,18 +143,14 @@ test('should handle all membership states correctly', (t) => {
       billingInterval: BillingInterval.monthly
     } as Membership;
 
-    // Act
     const dto = MembershipDto.fromDomain(membership);
 
-    // Assert
     t.is(dto.state, state);
     t.is(dto.name, `${state} Membership`);
   });
 });
 
-// Test for handling different billing intervals
 test('should handle different billing intervals correctly', (t) => {
-  // Test with different billing intervals
   const billingIntervals = [
     BillingInterval.weekly,
     BillingInterval.monthly,
@@ -182,7 +158,6 @@ test('should handle different billing intervals correctly', (t) => {
   ];
 
   billingIntervals.forEach((interval) => {
-    // Arrange
     const createDto: CreateMembershipDto = {
       name: `${interval} Membership`,
       recurringPrice: 10,
@@ -192,11 +167,9 @@ test('should handle different billing intervals correctly', (t) => {
       user: 999
     };
 
-    // Act
     const domain = MembershipDto.toDomain(createDto);
     const dto = MembershipDto.fromDomain(domain);
 
-    // Assert
     t.is(dto.billingInterval, BillingInterval.monthly);
     t.is(dto.name, `Basic Membership`);
   });

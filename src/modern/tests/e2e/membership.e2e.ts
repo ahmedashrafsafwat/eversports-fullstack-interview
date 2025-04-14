@@ -22,10 +22,11 @@ import {
 import { ErrorResponseMessage } from '../../core/types/apiGenerated.interface';
 
 test('POST /memberships should create a new membership with 201 status', async (t) => {
+  // This is a useless assignment, but it is here to apply the Arrange in the AAA pattern
   const payload = createValidMembershipInput;
 
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(payload)
     .expect(201);
 
@@ -36,7 +37,7 @@ test('POST /memberships should return 400 if body is empty', async (t) => {
   const invalidPayload = {};
 
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(invalidPayload)
     .expect(400);
 
@@ -46,7 +47,7 @@ test('POST /memberships should return 400 if body is empty', async (t) => {
 
 test('POST /memberships should return 400 if name is missing', async (t) => {
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(missingNameInValidMembershipInput)
     .expect(400);
 
@@ -56,7 +57,7 @@ test('POST /memberships should return 400 if name is missing', async (t) => {
 
 test('POST /memberships should return 400 if body is recurringPrice not a number', async (t) => {
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(recurringPriceNotNumbereInValidMembershipInput)
     .expect(400);
 
@@ -66,7 +67,7 @@ test('POST /memberships should return 400 if body is recurringPrice not a number
 
 test('POST /memberships should return 400 if recurringPrice is of negative value', async (t) => {
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(recurringPriceNegativeInValidMembershipInput)
     .expect(400);
 
@@ -76,7 +77,7 @@ test('POST /memberships should return 400 if recurringPrice is of negative value
 
 test('POST /memberships should return 400 if recurringPrice is less than 100 and paymentMethod is cash', async (t) => {
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(recurringPriceLessThan100InValidMembershipInput)
     .expect(400);
 
@@ -86,7 +87,7 @@ test('POST /memberships should return 400 if recurringPrice is less than 100 and
 
 test('POST /memberships should return 400 if billingInterval is Mothly and billingPeriods is less than 6', async (t) => {
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(billingIntervalMonthlyLessThan6InValidMembershipInput)
     .expect(400);
 
@@ -99,7 +100,7 @@ test('POST /memberships should return 400 if billingInterval is Mothly and billi
 
 test('POST /memberships should return 400 if billingInterval is Mothly and billingPeriods is more than 12', async (t) => {
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(billingIntervalMonthlyMoreThan12InValidMembershipInput)
     .expect(400);
 
@@ -112,7 +113,7 @@ test('POST /memberships should return 400 if billingInterval is Mothly and billi
 
 test('POST /memberships should return 400 if billingInterval is Yearly and billingPeriods is more than 10', async (t) => {
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(billingIntervalYearlyMoreThan10InValidMembershipInput)
     .expect(400);
 
@@ -125,7 +126,7 @@ test('POST /memberships should return 400 if billingInterval is Yearly and billi
 
 test('POST /memberships should return 400 if billingInterval is Yearly and billingPeriods is less than 2', async (t) => {
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(billingIntervalYearlyLessThan2InValidMembershipInput)
     .expect(400);
 
@@ -138,7 +139,7 @@ test('POST /memberships should return 400 if billingInterval is Yearly and billi
 
 test('POST /memberships should return 400 if billingInterval is not Yearly or Monthly', async (t) => {
   const response = await request(app)
-    .post('/membership')
+    .post('/memberships')
     .send(billingIntervalInvalidInValidMembershipInput)
     .expect(400);
 
@@ -147,7 +148,7 @@ test('POST /memberships should return 400 if billingInterval is not Yearly or Mo
 });
 
 test('GET /memberships should return a list of memberships with 200 status', async (t) => {
-  const response = await request(app).get('/membership').expect(200);
+  const response = await request(app).get('/memberships').expect(200);
 
   t.true(Array.isArray(response.body), 'Response body should be an array');
 

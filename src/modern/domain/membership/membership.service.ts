@@ -9,7 +9,7 @@ import {
   MembershipWithPeriodDto,
   MembershipWithPeriodsDto
 } from '../../application/dto/membershipWithPeriod.dto';
-import { MembershipPeriod } from '../membershipPeriod/membershipPeriod.model';
+import { MembershipPeriod } from './membershipPeriod/membershipPeriod.model';
 import { logMethod } from '../../core/decorators/logMethod';
 
 export class MembershipService {

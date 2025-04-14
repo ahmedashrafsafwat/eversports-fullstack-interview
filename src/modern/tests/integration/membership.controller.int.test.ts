@@ -66,7 +66,6 @@ test('POST /memberships creates membership successfully', async (t) => {
     .send(payload)
     .expect(201);
 
-  console.log(response.body);
   t.is(
     response.body.membership.name,
     mockMembershipWithPeriods.membership.name
