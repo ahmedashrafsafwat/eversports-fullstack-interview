@@ -1,0 +1,730 @@
+{
+  "info": {
+    "_postman_id": "0874c1b3-ed1b-46f7-9781-a4910f0c8b9f",
+    "name": "Eversports-task1",
+    "description": "This is the postman collection for Eversports task #1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4553194"
+  },
+  "item": [
+    {
+      "name": "Create Memberships",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\":  \"my name\",\r\n  \"recurringPrice\": 12,\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 10,\r\n  \"billingInterval\": \"yearly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/legacy/memberships",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["legacy", "memberships"]
+        }
+      },
+      "response": [
+        {
+          "name": "response200",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":  123,\r\n  \"recurringPrice\": 200,\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 10,\r\n  \"billingInterval\": \"yearly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "1473"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"5c1-+TBkPpfY+FUDoAEzzhHlQ+yY4A0\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:31:11 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"membership\": {\n        \"id\": 3,\n        \"uuid\": \"4600a253-3935-4599-9798-096ec749cbc1\",\n        \"name\": 123,\n        \"state\": \"active\",\n        \"validFrom\": \"2025-04-14T01:31:11.698Z\",\n        \"validUntil\": \"2035-04-14T01:31:11.698Z\",\n        \"user\": 2000,\n        \"paymentMethod\": \"cash\",\n        \"recurringPrice\": 200,\n        \"billingPeriods\": 10,\n        \"billingInterval\": \"yearly\"\n    },\n    \"membershipPeriods\": [\n        {\n            \"id\": 21,\n            \"uuid\": \"306d27ab-7dea-4e72-846f-9ed32474754a\",\n            \"membershipId\": 3,\n            \"start\": \"2025-04-14T01:31:11.698Z\",\n            \"end\": null,\n            \"state\": \"planned\"\n        },\n        {\n            \"id\": 22,\n            \"uuid\": \"f6805d49-e5b7-4e4c-bae1-dae0f6964b18\",\n            \"membershipId\": 3,\n            \"start\": null,\n            \"end\": null,\n            \"state\": \"planned\"\n        },\n        {\n            \"id\": 23,\n            \"uuid\": \"3c8e4cb0-edd2-4b49-8934-244ceaf24dcb\",\n            \"membershipId\": 3,\n            \"start\": null,\n            \"end\": null,\n            \"state\": \"planned\"\n        },\n        {\n            \"id\": 24,\n            \"uuid\": \"7eda5759-9db2-4125-aa5a-a7614dcab754\",\n            \"membershipId\": 3,\n            \"start\": null,\n            \"end\": null,\n            \"state\": \"planned\"\n        },\n        {\n            \"id\": 25,\n            \"uuid\": \"f4b5b84f-d48a-499e-9585-d86ee4e3c4d8\",\n            \"membershipId\": 3,\n            \"start\": null,\n            \"end\": null,\n            \"state\": \"planned\"\n        },\n        {\n            \"id\": 26,\n            \"uuid\": \"acd27b6a-0a84-454d-be54-692c6fac32d9\",\n            \"membershipId\": 3,\n            \"start\": null,\n            \"end\": null,\n            \"state\": \"planned\"\n        },\n        {\n            \"id\": 27,\n            \"uuid\": \"91ff6804-415b-44eb-8cad-e820f9fe260b\",\n            \"membershipId\": 3,\n            \"start\": null,\n            \"end\": null,\n            \"state\": \"planned\"\n        },\n        {\n            \"id\": 28,\n            \"uuid\": \"4f038093-d963-428a-bbf7-dda953187374\",\n            \"membershipId\": 3,\n            \"start\": null,\n            \"end\": null,\n            \"state\": \"planned\"\n        },\n        {\n            \"id\": 29,\n            \"uuid\": \"491f0632-e474-40ec-ac2d-f343d3df54f0\",\n            \"membershipId\": 3,\n            \"start\": null,\n            \"end\": null,\n            \"state\": \"planned\"\n        },\n        {\n            \"id\": 30,\n            \"uuid\": \"014da416-72fd-445d-906a-20988365b122\",\n            \"membershipId\": 3,\n            \"start\": null,\n            \"end\": null,\n            \"state\": \"planned\"\n        }\n    ]\n}"
+        },
+        {
+          "name": "response400s:missingMandatoryFields",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"recurringPrice\": 200,\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 10,\r\n  \"billingInterval\": \"yearly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "36"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"24-zfyHSqE1fybEb9eGcdI5vNyxb8U\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:32:14 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"missingMandatoryFields\"\n}"
+        },
+        {
+          "name": "response400:missingMandatoryFields",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":  123,\r\n  \"recurringPrice\": \"200\",\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 10,\r\n  \"billingInterval\": \"yearly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "36"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"24-zfyHSqE1fybEb9eGcdI5vNyxb8U\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:32:45 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"missingMandatoryFields\"\n}"
+        },
+        {
+          "name": "response400:cashPriceBelow100",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":  123,\r\n  \"recurringPrice\": 70,\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 10,\r\n  \"billingInterval\": \"yearly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "31"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1f-GSFsthigTPHOJ1Kth3+wiO8ejTk\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:33:52 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"cashPriceBelow100\"\n}"
+        },
+        {
+          "name": "response400:negativeRecurringPrice",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":  123,\r\n  \"recurringPrice\": -200,\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 10,\r\n  \"billingInterval\": \"yearly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "36"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"24-6GTfcI+lOdAefotBoZcvZO1sfbA\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:34:26 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"negativeRecurringPrice\"\n}"
+        },
+        {
+          "name": "response400:billingPeriodsMoreThan12Months",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":  123,\r\n  \"recurringPrice\": 200,\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 13,\r\n  \"billingInterval\": \"monthly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "44"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"2c-niE/SgVBrUAJDv35R+SA6PXkpag\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:35:13 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"billingPeriodsMoreThan12Months\"\n}"
+        },
+        {
+          "name": "response400:billingPeriodsLessThan6Months",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":  123,\r\n  \"recurringPrice\": 200,\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 5,\r\n  \"billingInterval\": \"monthly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "43"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"2b-2b9anJUjGwRP2nWjBhAHCwwT6lg\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:35:36 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"billingPeriodsLessThan6Months\"\n}"
+        },
+        {
+          "name": "response400:billingPeriodsMoreThan10Years",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":  123,\r\n  \"recurringPrice\": 200,\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 11,\r\n  \"billingInterval\": \"yearly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "43"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"2b-dUtHC7G1QMAW+8/ObmmKEWUpmkw\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:36:03 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"billingPeriodsMoreThan10Years\"\n}"
+        },
+        {
+          "name": "response400:billingPeriodsLessThan3Years",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":  123,\r\n  \"recurringPrice\": 200,\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 2,\r\n  \"billingInterval\": \"yearly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "42"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"2a-Lh0omRwNaKTYI+Hjb9l2nU+/gb4\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:36:51 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"billingPeriodsLessThan3Years\"\n}"
+        },
+        {
+          "name": "response400:invalidBillingPeriods",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":  123,\r\n  \"recurringPrice\": 200,\r\n  \"paymentMethod\": \"cash\",\r\n  \"billingPeriods\": 2,\r\n  \"billingInterval\": \"weekly\",\r\n  \"validFrom\": \"2025-04-10T05:40:47.206Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "35"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"23-XxEfW33N81ouBWaf0Q6eSymXGdA\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:37:19 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"invalidBillingPeriods\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "All Memberships",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/membership/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["membership", ""]
+        }
+      },
+      "response": [
+        {
+          "name": "response200",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "5428"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1534-8LxIyAoCj9k884dbuaeOMxj0EXw\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:39:08 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"membership\": {\n            \"id\": 1,\n            \"uuid\": \"01a1d23f-48ef-4055-b660-3046f432750e\",\n            \"name\": 123,\n            \"state\": \"active\",\n            \"validFrom\": \"2025-04-14T01:31:03.429Z\",\n            \"validUntil\": \"2035-04-14T01:31:03.429Z\",\n            \"user\": 2000,\n            \"paymentMethod\": \"cash\",\n            \"recurringPrice\": 200,\n            \"billingPeriods\": 10,\n            \"billingInterval\": \"yearly\"\n        },\n        \"membershipPeriods\": [\n            {\n                \"id\": 1,\n                \"uuid\": \"5d5eb013-661f-4427-851f-7e75d406a4c6\",\n                \"membershipId\": 1,\n                \"start\": \"2025-04-14T01:31:03.429Z\",\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 2,\n                \"uuid\": \"de33de4d-0e5c-4012-91ac-d74e4ac2bd61\",\n                \"membershipId\": 1,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 3,\n                \"uuid\": \"ea96bf7f-85a9-4b3c-936d-3c7ce3e9fb4a\",\n                \"membershipId\": 1,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 4,\n                \"uuid\": \"13ca1a8c-05b5-443b-9947-38674dd012c2\",\n                \"membershipId\": 1,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 5,\n                \"uuid\": \"6e2f11bf-f548-4239-a20d-bdf4266afc20\",\n                \"membershipId\": 1,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 6,\n                \"uuid\": \"cc4a805f-bfcf-48e7-b276-4864595e1758\",\n                \"membershipId\": 1,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 7,\n                \"uuid\": \"0b964d20-5073-4714-91bb-d9e5fcd1c331\",\n                \"membershipId\": 1,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 8,\n                \"uuid\": \"e71a26ab-fe5d-4b76-8e58-88c2245822ec\",\n                \"membershipId\": 1,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 9,\n                \"uuid\": \"2d5efed3-74d0-457f-a15b-b0de8ebd3431\",\n                \"membershipId\": 1,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 10,\n                \"uuid\": \"fddf2dde-8a71-4932-b237-1a3daf31c06b\",\n                \"membershipId\": 1,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            }\n        ]\n    },\n    {\n        \"membership\": {\n            \"id\": 2,\n            \"uuid\": \"a5f9d19b-3942-4d2a-b07d-a5f4bb63358b\",\n            \"name\": 123,\n            \"state\": \"active\",\n            \"validFrom\": \"2025-04-14T01:31:09.972Z\",\n            \"validUntil\": \"2035-04-14T01:31:09.972Z\",\n            \"user\": 2000,\n            \"paymentMethod\": \"cash\",\n            \"recurringPrice\": 200,\n            \"billingPeriods\": 10,\n            \"billingInterval\": \"yearly\"\n        },\n        \"membershipPeriods\": [\n            {\n                \"id\": 11,\n                \"uuid\": \"4c4e394f-3549-452e-8e9c-a27b506c701d\",\n                \"membershipId\": 2,\n                \"start\": \"2025-04-14T01:31:09.972Z\",\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 12,\n                \"uuid\": \"34c4b371-c28c-48e2-819f-bf1d48f76111\",\n                \"membershipId\": 2,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 13,\n                \"uuid\": \"cc99c050-ed27-478d-adf8-b1c65628e6f4\",\n                \"membershipId\": 2,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 14,\n                \"uuid\": \"b2fd0192-818a-4a7b-b4aa-3e59f16c963d\",\n                \"membershipId\": 2,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 15,\n                \"uuid\": \"5023f592-bf09-49dc-bec7-931c72eb0c1d\",\n                \"membershipId\": 2,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 16,\n                \"uuid\": \"1fa8e6cc-5335-4c45-b034-e24224cc5d62\",\n                \"membershipId\": 2,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 17,\n                \"uuid\": \"0354bda2-b011-4e87-92bc-038380a74a31\",\n                \"membershipId\": 2,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 18,\n                \"uuid\": \"d7fe241e-f6b8-4f5e-bfe1-38f0bb808de9\",\n                \"membershipId\": 2,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 19,\n                \"uuid\": \"d0eb788a-1661-409b-a47c-89dce172d813\",\n                \"membershipId\": 2,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 20,\n                \"uuid\": \"b891c72c-10ad-4e43-a1b8-657316d8b348\",\n                \"membershipId\": 2,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            }\n        ]\n    },\n    {\n        \"membership\": {\n            \"id\": 3,\n            \"uuid\": \"4600a253-3935-4599-9798-096ec749cbc1\",\n            \"name\": 123,\n            \"state\": \"active\",\n            \"validFrom\": \"2025-04-14T01:31:11.698Z\",\n            \"validUntil\": \"2035-04-14T01:31:11.698Z\",\n            \"user\": 2000,\n            \"paymentMethod\": \"cash\",\n            \"recurringPrice\": 200,\n            \"billingPeriods\": 10,\n            \"billingInterval\": \"yearly\"\n        },\n        \"membershipPeriods\": [\n            {\n                \"id\": 21,\n                \"uuid\": \"306d27ab-7dea-4e72-846f-9ed32474754a\",\n                \"membershipId\": 3,\n                \"start\": \"2025-04-14T01:31:11.698Z\",\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 22,\n                \"uuid\": \"f6805d49-e5b7-4e4c-bae1-dae0f6964b18\",\n                \"membershipId\": 3,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 23,\n                \"uuid\": \"3c8e4cb0-edd2-4b49-8934-244ceaf24dcb\",\n                \"membershipId\": 3,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 24,\n                \"uuid\": \"7eda5759-9db2-4125-aa5a-a7614dcab754\",\n                \"membershipId\": 3,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 25,\n                \"uuid\": \"f4b5b84f-d48a-499e-9585-d86ee4e3c4d8\",\n                \"membershipId\": 3,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 26,\n                \"uuid\": \"acd27b6a-0a84-454d-be54-692c6fac32d9\",\n                \"membershipId\": 3,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 27,\n                \"uuid\": \"91ff6804-415b-44eb-8cad-e820f9fe260b\",\n                \"membershipId\": 3,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 28,\n                \"uuid\": \"4f038093-d963-428a-bbf7-dda953187374\",\n                \"membershipId\": 3,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 29,\n                \"uuid\": \"491f0632-e474-40ec-ac2d-f343d3df54f0\",\n                \"membershipId\": 3,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 30,\n                \"uuid\": \"014da416-72fd-445d-906a-20988365b122\",\n                \"membershipId\": 3,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            }\n        ]\n    },\n    {\n        \"membership\": {\n            \"id\": 4,\n            \"uuid\": \"5ee60846-9384-410c-b0df-258a0ccc23d4\",\n            \"name\": 123,\n            \"state\": \"active\",\n            \"validFrom\": \"2025-04-14T01:35:33.384Z\",\n            \"validUntil\": \"2025-10-14T01:35:33.384Z\",\n            \"user\": 2000,\n            \"paymentMethod\": \"cash\",\n            \"recurringPrice\": 200,\n            \"billingPeriods\": 6,\n            \"billingInterval\": \"monthly\"\n        },\n        \"membershipPeriods\": [\n            {\n                \"id\": 31,\n                \"uuid\": \"03444293-8b26-49ae-8886-106ad77a8597\",\n                \"membershipId\": 4,\n                \"start\": \"2025-04-14T01:35:33.384Z\",\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 32,\n                \"uuid\": \"a805a473-fc68-4551-a2ef-6d069adc0539\",\n                \"membershipId\": 4,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 33,\n                \"uuid\": \"33b03e37-8e77-4723-9d74-bf41b94b25e2\",\n                \"membershipId\": 4,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 34,\n                \"uuid\": \"e3f2f1a3-83fb-465b-bdca-d524e6466337\",\n                \"membershipId\": 4,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 35,\n                \"uuid\": \"bb73e90c-9c2e-4fd8-aaa1-f6c86e221eae\",\n                \"membershipId\": 4,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            },\n            {\n                \"id\": 36,\n                \"uuid\": \"f8aa9a91-b136-4ba4-8eab-b64e6a9ec5f3\",\n                \"membershipId\": 4,\n                \"start\": null,\n                \"end\": null,\n                \"state\": \"planned\"\n            }\n        ]\n    }\n]"
+        },
+        {
+          "name": "response200:empty",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/membership/",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["membership", ""]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "2"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 14 Apr 2025 01:40:19 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[]"
+        }
+      ]
+    }
+  ]
+}

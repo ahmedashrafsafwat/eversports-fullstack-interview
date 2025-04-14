@@ -1,0 +1,25 @@
+name: PR Build and Test
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+
+jobs:
+  build-and-test:
+    name: Build & Test inside Docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -t eversports-fullstack-interview:1.0 .
+
+      - name: Run Tests in Docker
+        run: |
+          docker run --rm eversports-fullstack-interview sh -c "npm run build && npm run test:all"

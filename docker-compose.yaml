@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  api:
+    container_name: api
+    build:
+      context: .
+      target: development
+    ports:
+      - ${PORT}:${PORT}
+    command: npm start
+    depends_on:
+      - postgres
+    volumes:
+      - ./:/app
+    env_file:
+      - ./.env
+    links:
+      - postgres
+
+  postgres:
+    image: postgres:9.6-alpine
+    container_name: postgres
+    ports:
+      - '${DB_PORT}:${DB_PORT}'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB:=${DB_NAME}
+volumes:
+  postgres-data:
+
