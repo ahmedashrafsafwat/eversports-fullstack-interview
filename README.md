@@ -136,6 +136,12 @@ Working on this task was a blast 🎉! It felt especially rewarding because I ha
 
 ---
 
+## Task 2
+
+Task 2 can be found [here](./docs/task2/) , the documentation in there explains everything behind the design decisions that I made
+ 
+---
+
 # Running Project Commands
 
 This project uses a set of handy npm scripts for development, testing, and code generation. Below is a guide on how to use them.
